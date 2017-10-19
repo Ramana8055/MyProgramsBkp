@@ -1,0 +1,91 @@
+enable,.1.0.15628.4.1.50.1.2.0,i,0,1,Enable/Disable the tim application
+filepath,.1.0.15628.4.1.50.1.3.0,s,,,Set File Path for TIM active DB files location
+streamingmode,.1.0.15628.4.1.50.1.4.0,i,0,2,0 -- Enable the receiving of TIM packets from Hub RSU. 1 -- Enable the sending of TIM packets to the Spoke RSUs. 2 -- Disable TIM UDP streaming/receiving
+streamingport,.1.0.15628.4.1.50.1.5.0,i,1024,65535,UDP Streaming port <1024..65535>
+streamingipaddr,.1.0.15628.4.1.50.1.6.0,ip,,,IPv6 multicast/broadcast/unicast address to stream
+certificate-attachrate,.1.0.15628.4.1.50.1.7.0,i,100,5000,Certificate Attach interval in millisecs <100..5000>
+enable,.1.0.15628.4.1.51.1.2.0,i,0,1,Enable/Disable the DsrcProxy application
+listenerport,.1.0.15628.4.1.51.1.3.0,i,0,65535,UDP Listener Port value <0..65535>
+streamingmode,.1.0.15628.4.1.51.1.4.0,i,1,2,0 -- Enable the receiving of WSMP packets from Hub RSU. 1 -- Enable the sending of WSMP packets to the Spoke RSUs. 2 -- Disable WSMP UDP streaming/receiving
+streamingport,.1.0.15628.4.1.51.1.5.0,i,1024,65535,UDP Streaming port <1024..65535>
+streamingip,.1.0.15628.4.1.51.1.6.0,ip,,,IPv6 multicast/broadcast/unicast address to stream
+tcdlisten,.1.0.15628.4.1.51.1.7.0,i,0,1,Enable/Disable Listen to the TCd socket for incoming msgs
+certificate-attachrate,.1.0.15628.4.1.51.1.8.0,i,100,5000,Certificate Attach interval in millisecs <100..5000>
+generation-location,.1.0.15628.4.1.51.1.9.0,i,0,1,Enable/Disable transmitting the location information in the SPaT message
+enable,.1.0.15628.4.1.52.1.2.0,i,0,1,Enable/Disable the BSM Forward application
+remote-ip,.1.0.15628.4.1.52.1.3.0,ip,,,Set Static IP address of the remote server
+port,.1.0.15628.4.1.52.1.4.0,i,1,65535,UDP Streaming port <1..65535>
+protocol,.1.0.15628.4.1.52.1.5.0,s,UDP:TCP,,Valid values:TCP/UDP
+bsmforwd-msgtype,.1.0.15628.4.1.52.1.6.0,i,0,9,Set bsmforward type. plain/decode
+header-version,.1.0.15628.4.1.52.1.7.0,i,1,2,,Set BSM forward header version. version_1/version_2
+psid,.1.0.15628.4.1.52.1.8.0,p,,,Set Message psid. <0x00..0x7F> <0X8000..0XBFFF> <0XC00000..0XDFFFFF> <0XE0000000..0XEFFFFFFF>
+enable,.1.0.15628.4.1.53.1.2.0,i,0,1,Enable/Disable the WSMP Forward application
+channel,.1.0.15628.4.1.53.1.3.0,i,172,184,Valid values:172..184
+port,.1.0.15628.4.1.53.1.4.0,i,1024,65535,Set listener port to receive WSMs
+protocol,.1.0.15628.4.1.53.1.5.0,f,UDP:TCP,,Valid values:TCP/UDP
+ip,.1.0.15628.4.1.53.1.6.0,ip,,,Set multicast IP
+psid,.1.0.15628.4.1.53.1.7.0,p,,,Set Message psid. <0x00..0x7F> <0X8000..0XBFFF> <0XC00000..0XDFFFFF> <0XE0000000..0XEFFFFFFF>
+hostname,.1.0.15628.4.1.54.1.0,s,,,Set ntpclient hostname
+enable,.1.0.15628.4.1.55.1.2.0,i,0,1,Set gpsoutput port value <1024 - 65535>
+port,.1.0.15628.4.1.55.1.3.0,i,1024,65535,Set gpsoutput port value <1024 - 65535>
+interval,.1.0.15628.4.1.55.1.4.0,i,1,18000,Set gps streaming interval value <1 - 18000>
+dsrc0chmode,.1.0.15628.4.1.56.1.2.0,i,0,1,Set dsrc0 channel mode value <0 (continuous) - 1 (alternating)>
+dsrc1chmode,.1.0.15628.4.1.56.1.2.1,i,0,1,Set dsrc0 channel mode value <0 (continuous) - 1 (alternating)>
+dsrc0serchannel,.1.0.15628.4.1.56.1.4.0,i,172,184,Set dsrc0 Forced service Channel value <172 - 184 except 178>
+dsrc1serchannel,.1.0.15628.4.1.56.1.4.1.0,i,172,184,Set dsrc0 Forced service Channel value <172 - 184 except 178>
+enable,.1.0.15628.4.1.57.1.1.2.0,i,0,1,Enable/Disable the IPV6 Provider application
+psid,.1.0.15628.4.1.57.1.1.3.0,p,,,Set Message psid. <0x00..0x7F> <0X8000..0XBFFF> <0XC00000..0XDFFFFF> <0XE0000000..0XEFFFFFFF>
+security,.1.0.15628.4.1.57.1.1.4.0,i,0,1,Enable/Disable the security for WSAs
+priority,.1.0.15628.4.1.57.1.1.5.0,i,0,63,IPv6 WSA priority <0..63>
+advertiser-id,.1.0.15628.4.1.57.1.1.6.0,s,,,The Advertiser identifier of an advertising device. Type NULL to set no value
+service-context,.1.0.15628.4.1.57.1.1.7.0,s,,,Provider service context. Type NULL to set no value
+ipv6addr,.1.0.15628.4.1.57.1.1.8.0,ip,,,Provider IPv6 address to announce in ServiceInfo of WSAs. Type NULL to set no value
+port,.1.0.15628.4.1.57.1.1.9.0,i,1024,65535,Service port to announce in ServiceInfo of WSAs <1024..65535>. Enter 0 to set no value
+macaddr,.1.0.15628.4.1.57.1.1.10.0,m,,,Provider MAC Address of the device providing the service. Type NULL to set no value
+repeat-rate,.1.0.15628.4.1.57.1.1.11.0,i,0,255,The number of WSA's to be Transmitted per 5 seconds <0..255>
+lifetime,.1.0.15628.4.1.57.2.1.2.0,i,1,65535,Valid values:1..65535. Enter 0 to set no value
+prefix,.1.0.15628.4.1.57.2.1.3.0,s,,,Enter a valid prefix to announce in WRA or WSA. Type NULL to set no value
+prefixlen,.1.0.15628.4.1.57.2.1.4.0,i,1,128,Valid values:1..128. Enter 0 to set no value
+gateway-address_ipv6,.1.0.15628.4.1.57.2.1.5.0,ip,,,Enter valid default gateway address. Type NULL to set no value
+gateway-address_mac,.1.0.15628.4.1.57.2.1.6.0,m,,,Enter a valid Gateway MAC address to announce in WRA. Type NULL to set no value
+primary-dns,.1.0.15628.4.1.57.2.1.7.0,ip,,,Enter a valid DNS server address to announce in WRA or WSA. Type NULL to set no value
+enable-tcd,.1.0.15628.4.1.58.1.2.0,i,0,1,Enable/Disable the tcd application
+mode,.1.0.15628.4.1.58.1.3.0,i,0,2,"Set tcd operating mode <NTCIP, BATTELLE, UDP-PUSH>"
+tc-ipaddr,.1.0.15628.4.1.58.1.4.0,ip,,,Set traffic controller IP
+tc-port,.1.0.15628.4.1.58.1.5.0,i,1,65535,Set traffic controller port <1 - 65535>
+tc-type,.1.0.15628.4.1.58.1.6.0,i,0,3,,"Set traffic controller type <Generic, Econolite, D4, Siemens>"
+spat-txInterval,.1.0.15628.4.1.58.1.7.0,i,100,2000,Set Spat Trasmit Interval in milliseconds <100 - 2000>
+map-txInterval,.1.0.15628.4.1.58.1.8.0,i,1,10000,Set Map Trasmit Interval in milliseconds <1 - 10000>
+enable-sendRedStates,.1.0.15628.4.1.58.1.9.0,i,0,1,Enable/Disable Send Red States
+mapfile,.1.0.15628.4.1.58.1.10.0,s,,,Set Map file name <max-len 256>
+enable-DetectorInfo,.1.0.15628.4.1.58.1.11.0,i,0,1,Enable/Disable Detector Info
+battelle-port,.1.0.15628.4.1.58.1.12.0,i,1,65535,Set Battelle Listen port for incoming messages <1 - 65535>
+push-port,.1.0.15628.4.1.58.1.13.0,i,1,65535,Set Push Listen port for Trasmit controller <1 - 65535>
+SpatMap-version,.1.0.15628.4.1.58.1.14.0,s,0,1000,Set SpatMap Version <0 - 1000>
+spat-psid,.1.0.15628.4.1.58.1.15.0,p,,,Set Spat psid <0x00..0x7F> <0X8000..0XBFFF> <0XC00000..0XDFFFFF> <0XE0000000..0XEFFFFFFF>
+spat-priority,.1.0.15628.4.1.58.1.16.0,i,0,63,Set Spat priority <0 - 63>
+spatSignature,.1.0.15628.4.1.58.1.17.0,s,TRUE:FALSE,,Set spat signature <True/False>
+spatEncryption,.1.0.15628.4.1.58.1.18.0,s,TRUE:FALSE,,Set spat encryption <True/False>
+map-psid,.1.0.15628.4.1.58.1.19.0,p,,,Set Map psid <0x00..0x7F> <0X8000..0XBFFF> <0XC00000..0XDFFFFF> <0XE0000000..0XEFFFFFFF>
+map-priority,.1.0.15628.4.1.58.1.20.0,i,0,63,Set Map priority <0 - 63>
+mapSignature,.1.0.15628.4.1.58.1.21.0,s,TRUE:FALSE,,Set map signature <True/False>
+mapEncryption,.1.0.15628.4.1.58.1.22.0,s,TRUE:FALSE,,Set map encryption <True/False>
+map-persistenTimeOut,.1.0.15628.4.1.58.1.23.0,i,1,1440,Set Map persistent timeout in min <1 - 1440>
+spat-txEnabledLanes,.1.0.15628.4.1.58.1.24.0,i,0,1,Set Spat tx enabled lanes <0(do not tx enablesLanes) - 1(tx enablesLanes)>
+enable-spatcertatchopt,.1.0.15628.4.1.58.1.25.0,i,0,1,Enable/Disable Spat certAttach optimisation
+spat-certAttachRate,.1.0.15628.4.1.58.1.26.0,i,500,10000,Set certificate attach rate for Spat <500 - 10000>
+map-certAttachRate,.1.0.15628.4.1.58.1.27.0,i,1000,10000,Set certificate attach rate for Map <1000 - 10000>
+enable,.1.0.15628.4.1.60.1.0,i,0,1,Enable/Disable pcaplog
+Log-dir-0,.1.0.15628.4.1.60.2.0,s,,,Set pcaplog files location (max size 200)
+Log-dir-1,.1.0.15628.4.1.60.2.1,s,,,Set pcaplog files location (max size 200)
+Log-dir-0,.1.0.15628.4.1.60.2.2,s,,,Set pcaplog files location (max size 200)
+Filesize-0,.1.0.15628.4.1.60.3.1.2.0,i,0,200,Set pcaplog file size in MB <0(unlimited) - 200>
+Filesize-1,.1.0.15628.4.1.60.3.1.2.1,i,0,200,Set pcaplog file size in MB <0(unlimited) - 200>
+Filesize-2,.1.0.15628.4.1.60.3.1.2.2,i,0,200,Set pcaplog file size in MB <0(unlimited) - 200>
+timeout,.1.0.15628.4.1.60.3.1.3.0,i,0,43200,Set max time file is allowed to grow in mins <0(unlimited) - 43200(30 Days)>
+Outcapture-0,.1.0.15628.4.1.60.3.1.4.0,i,0,1,"enable(1)/disable(0), capture everything originated by us"
+Outcapture-1,.1.0.15628.4.1.60.3.1.4.1,i,0,1,"enable(1)/disable(0), capture everything originated by us"
+Outcapture-2,.1.0.15628.4.1.60.3.1.4.2,i,0,1,"enable(1)/disable(0), capture everything originated by us"
+Incapture-0,.1.0.15628.4.1.60.3.1.5.0,i,0,1,"enable(1)/disable(0), capture everything destined to us"
+Incapture-1,.1.0.15628.4.1.60.3.1.5.1,i,0,1,"enable(1)/disable(0), capture everything destined to us"
+Incapture-2,.1.0.15628.4.1.60.3.1.5.2,i,0,1,"enable(1)/disable(0), capture everything destined to us"

@@ -1,0 +1,19 @@
+## Configure lan interface ipaddress
+ipadd=`uci get network.lan.ipaddr`
+echo "$ipadd"
+#uci set network.lan.ipaddr=$1
+#uci commit network 
+#sleep 10
+#/etc/init.d/network reload
+#sleep 10
+ifconfig eth0 $1 up
+echo "ipaddr is changed"
+var="ipaddr is chabged"
+ping -c 2 "$1"
+ifconfig eth0 $ipadd up
+#sleep 10
+#uci set network.lan.ipaddr=$ipadd
+#uci commit network
+#sleep 10
+#/etc/init.d/network reload
+#sleep 10

@@ -1,0 +1,13 @@
+# PPS Testing
+ 
+pps_var1=`grep "pps" /proc/interrupts |awk 'BEGIN {FS=" "} {print $2}'` 
+sleep 2
+pps_var2=`grep "pps" /proc/interrupts |awk 'BEGIN {FS=" "} {print $2}'`
+    
+  if [ $pps_var2 -ne $pps_var1 ]; then
+     echo "PPS is working"   
+     pps_var="PPS is working"
+  else 
+     echo "PPS not working"
+     pps_var="PPS not working"
+  fi

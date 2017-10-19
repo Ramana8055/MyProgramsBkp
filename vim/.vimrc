@@ -1,0 +1,1 @@
+/home/savari/.vim/vimrc

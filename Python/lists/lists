@@ -1,0 +1,10 @@
+list.append("value")
+list.extend("List") #concatenate two lists
+list.count("x") # count the occurances of "x"
+list.index("x") #return the index of first occurance of "x"
+list.sort(cmp=None, key=None, reverse=False) #sort
+list.reverse() #reverse the elements
+list.pop() #remove the last element
+list.pop(i) #remove the i'th(index) element
+list.remove("x") #remove the index at first occurance of "x"
+list.insert(i,x) #insert x at i'th position

@@ -1,0 +1,3 @@
+ABSAct,BrkAct,ExtBrkSw,TrcCtrlAct,PRNDL,DrvIntendedBrk,StbCtrlAct,Reserved,BrkPedalPos,BattVolt,YawRate,StrWhlAng,OutAirTemp,VehSpd,LatAccel,PanicBrake,BrakePreChg,HdLights,WiperSwRear,IntDimState,AirbagStatus,HighBeamStatus,WiperSweepStatus,WiperSwFnt,Reserved
+1,1,1,1,7,0,1,,255,600,-327.67,1024,40,,,,,,,,,,,,
+,,,,,,,,,,,,,650,9.9,1,1,1,6,1,0,1,0,6,0

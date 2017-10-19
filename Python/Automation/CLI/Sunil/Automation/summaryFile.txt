@@ -1,0 +1,330 @@
+Loop started : 
+
+Test Summary for RSE
+Tested on: Tue Nov 17 16:06:13 IST 2015
+Ethernet Mac address:00:0D:B9:29:2F:78
+
+SYSTEM TEST(Memory,cpu,nojournal)                             
+										      29464       227268
+ 
+CPU Usage                                 :19.64
+Nojournal                                 :0%
+
+Tue Nov 17 06:44:33 UTC 2015
+
+             Enabled       Idle      Running          Not-Running
+Service:
+--------
+SPAT           Y             _         Y                    _
+
+MAP            Y             _         Y                    _
+
+RTCM           Y             Y         _                    _
+
+TIM            Y             _         Y                    _
+
+WSA/IPV6       Y             _         Y                    _
+
+DSRCFORWD      Y             Y         _                    _
+
+Oper Mode:
+----------
+HUB            N             _         _                    _
+
+SPOKE          N             _         _                    _
+
+
+--------------------------------------------------------------
+
+Halt Last Executed On:	 Tue Nov 17 06:42:40 UTC 2015
+
+Run Last Executed On:	 Tue Nov 17 06:43:28 UTC 2015
+--------------------------------------------------------------
+BSMF status not available
+Can't connect to process mgr..
+	TIM:
+		Tx Packet                : 87
+		Udp Tx Packet            : 0
+		Signing Failures         : 0
+		Num Active List Files    : 1
+		Transmit Channel         : 174
+up 0 days 00:01:30 
+restarted: 0 times
+	DSRCPROXY:
+		SPAT:
+			Spat Rx                : 880
+			Spat Tx                : 880
+			Spat Udp Tx            : 0
+		MAP:
+			Map Rx                 : 880
+			Map Tx                 : 880
+			Map Udp Tx             : 0
+		RTCM:
+			RTCM Rx                : 0
+			RTCM Tx                : 0
+			RTCM Udp Tx            : 0
+up 0 days 00:01:30 
+restarted: 0 times
+SPATMAPAPP status not available
+Can't connect to process mgr..
+	IPV6:
+		IpService Enabled        : 0
+		Signing Enabled          : 1
+		Current Service Channel  : 174
+		Wsa Tx Packet            : 873
+up 0 days 00:01:30 
+restarted: 0 times
+WSMF status not available
+Can't connect to process mgr..
+UPLOADER status not available
+	DSRCFORWD:
+		PSID Based Stats For ath0:
+		PSID    	Rx		Tx		Drop
+		0xBFE0    	0		0		0
+
+		PSID Based Stats For ath1:
+		No Record Available
+
+up 0 days 00:01:30 
+restarted: 0 times
+GPSD
+up 0 days 00:16:29 
+restarted: 0 times
+smgrd
+up 0 days 00:16:18 
+restarted: 0 times
+sdiskmgr
+up 0 days 00:00:00 
+restarted: 0 times
+cycurv2x.bin
+up 0 days 00:01:33 
+restarted: 0 times
+savari16093d-ath0
+up 0 days 00:01:31 
+restarted: 0 times
+savari16093d-ath1
+up 0 days 00:01:31 
+restarted: 0 times
+heartbeat
+up 0 days 00:01:31 
+restarted: 0 times
+TCd
+up 0 days 00:00:00 
+restarted: 0 times
+Sinit
+up 0 days 00:16:30 
+restarted: 0 times
+Loop started : 
+
+Test Summary for RSE
+Tested on: Tue Nov 17 16:20:49 IST 2015
+Ethernet Mac address:00:0D:B9:29:2F:78
+
+timapp                
+					Pass Transmitted tim packet count: 5 
+					 
+Dsrcproxy TEST                             
+					No.of SpatMap packets transmitted is:657
+					Pass 
+
+SYSTEM TEST(Memory,cpu,nojournal)                             
+										      29520       227212
+ 
+CPU Usage                                 :18.85
+Nojournal                                 :0%
+GPS Test				
+					Pass(Got 3D Fix with WAAS) 
+					
+PPS Test				
+					Pass 
+					
+Channel Test                             
+					Pass Channel "172" 
+					Pass Channel "174" 
+					Pass Channel "176" 
+					Fail Channel "Invalid Channel 300" 
+					Pass Channel "180" 
+					
+Datarate Test                             
+					Pass datarate "3" 
+					Pass datarate "6" 
+					Fail datarate "10000" 
+					Pass datarate "27" 
+					Pass datarate "54" 
+					
+Txpower Test                             
+					Pass txpower "0" 
+					Fail txpower "788888888" 
+					Pass txpower "15" 
+					Pass txpower "22" 
+					Pass txpower "33" 
+					
+Lanipaddrchange Test                            
+					Pass (192.168.20.22)
+					
+WSA Transmission(ipv6)                
+					Fail timeout waiting for prompt 
+					
+upLoad       
+					Fail timeout waiting for prompt 
+					
+status_1                
+					Fail  
+					
+
+Loop started : 
+
+Test Summary for RSE
+Tested on: Tue Nov 17 16:56:42 IST 2015
+Ethernet Mac address:00:0D:B9:29:2F:78
+
+timapp                
+					Pass Transmitted tim packet count: 5 
+					 
+Dsrcproxy TEST                             
+					No.of SpatMap packets transmitted is:658
+					Pass 
+
+SYSTEM TEST(Memory,cpu,nojournal)                             
+										      28924       227808
+ 
+CPU Usage                                 :58.86
+Nojournal                                 :0%
+GPS Test				
+					Pass(Got 3D Fix with WAAS) 
+					
+PPS Test				
+					Pass 
+					
+Channel Test                             
+					Pass Channel "172" 
+					Pass Channel "174" 
+					Pass Channel "176" 
+					Fail Channel "Invalid Channel 300" 
+					Pass Channel "180" 
+					
+Datarate Test                             
+					Pass datarate "3" 
+					Pass datarate "6" 
+					Fail datarate "10000" 
+					Pass datarate "27" 
+					Pass datarate "54" 
+					
+Txpower Test                             
+					Pass txpower "0" 
+					Fail txpower "788888888" 
+					Pass txpower "15" 
+					Pass txpower "22" 
+					Pass txpower "33" 
+					
+WSA Transmission(ipv6)                
+					Pass Transmitted wsa packet count: 10 
+					 
+status_1                
+					status test done  
+					 
+
+Tue Nov 17 11:26:39 UTC 2015
+
+             Enabled       Idle      Running          Not-Running
+Service:
+--------
+SPAT           Y             _         Y                    _
+
+MAP            Y             _         Y                    _
+
+RTCM           Y             Y         _                    _
+
+TIM            Y             _         Y                    _
+
+WSA/IPV6       Y             _         Y                    _
+
+DSRCFORWD      Y             Y         _                    _
+
+Oper Mode:
+----------
+HUB            N             _         _                    _
+
+SPOKE          N             _         _                    _
+
+
+--------------------------------------------------------------
+
+Halt Last Executed On:	 Tue Nov 17 11:22:08 UTC 2015
+
+Run Last Executed On:	 Tue Nov 17 11:22:54 UTC 2015
+--------------------------------------------------------------
+BSMF status not available
+Can't connect to process mgr..
+	TIM:
+		Tx Packet                : 247
+		Udp Tx Packet            : 0
+		Signing Failures         : 0
+		Num Active List Files    : 1
+		Transmit Channel         : 174
+up 0 days 00:04:09 
+restarted: 0 times
+	DSRCPROXY:
+		SPAT:
+			Spat Rx                : 2474
+			Spat Tx                : 2474
+			Spat Udp Tx            : 0
+		MAP:
+			Map Rx                 : 248
+			Map Tx                 : 248
+			Map Udp Tx             : 0
+		RTCM:
+			RTCM Rx                : 0
+			RTCM Tx                : 0
+			RTCM Udp Tx            : 0
+up 0 days 00:04:09 
+restarted: 0 times
+SPATMAPAPP status not available
+Can't connect to process mgr..
+	IPV6:
+		IpService Enabled        : 0
+		Signing Enabled          : 1
+		Current Service Channel  : 180
+		Wsa Tx Packet            : 2252
+up 0 days 00:04:09 
+restarted: 0 times
+WSMF status not available
+Can't connect to process mgr..
+UPLOADER status not available
+	DSRCFORWD:
+		PSID Based Stats For ath0:
+		PSID    	Rx		Tx		Drop
+		0xBFE0    	0		0		0
+
+		PSID Based Stats For ath1:
+		No Record Available
+
+up 0 days 00:04:10 
+restarted: 0 times
+GPSD
+up 0 days 00:13:50 
+restarted: 0 times
+smgrd
+up 0 days 00:13:38 
+restarted: 0 times
+sdiskmgr
+up 0 days 00:00:00 
+restarted: 0 times
+cycurv2x.bin
+up 0 days 00:04:12 
+restarted: 0 times
+savari16093d-ath0
+up 0 days 00:04:10 
+restarted: 0 times
+savari16093d-ath1
+up 0 days 00:04:10 
+restarted: 0 times
+heartbeat
+up 0 days 00:04:10 
+restarted: 0 times
+TCd
+up 0 days 00:00:00 
+restarted: 0 times
+Sinit
+up 0 days 00:13:50 
+restarted: 0 times

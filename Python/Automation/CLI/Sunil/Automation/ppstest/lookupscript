@@ -1,0 +1,48 @@
+
+# Function to check Monitord status
+Monitord_status()
+{
+	ps | grep -v grep | grep Monitord > q.txt
+	a=`wc -l q.txt | awk '{print $1}'`
+	if [ $a != 0 ]
+	then
+		echo -n "Monitord is running "
+	else
+#		ps > out.txt 
+ 		echo -n "Monitord is not running "
+	fi
+}
+# Function to check gpsd status
+Gpsd_status()
+{
+	ps | grep -v grep | grep gpsd > p.txt
+	b=`wc -l p.txt | awk '{print $1}'`
+	if [ $b != 0 ]
+	then
+		echo "Gpsd is running"
+	else
+#		ps > out.txt
+#		cat out.txt
+		echo "Gpsd is not running"
+	fi
+}
+#Monitord_status
+killall -9 Monitord
+sleep 1
+#Monitord_status
+sleep 60
+#Monitord_status
+#Gpsd_status
+killall -9 gpsd
+sleep 1
+#Gpsd_status
+sleep 60
+#Gpsd_status
+killall -9 Monitord 
+killall -9 gpsd
+sleep 2
+#Monitord_status
+#Gpsd_status
+sleep 60
+Monitord_status
+Gpsd_status

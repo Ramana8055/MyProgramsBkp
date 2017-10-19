@@ -1,0 +1,1 @@
+cmd_/home/savari/Desktop/eg/module/km.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.13.0-46-generic/scripts/module-common.lds --build-id  -o /home/savari/Desktop/eg/module/km.ko /home/savari/Desktop/eg/module/km.o /home/savari/Desktop/eg/module/km.mod.o

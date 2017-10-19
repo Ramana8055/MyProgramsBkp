@@ -1,0 +1,13 @@
+#!/usr/bin/expect -- 
+# $Author: Savari $   : Author of last commit
+
+
+# include common files first
+puts "count : [lindex $argv 0]"
+#send "$count\r"
+source common.exp
+source commonTests.exp
+
+set count [lindex $argv 0]
+#call main
+main $count

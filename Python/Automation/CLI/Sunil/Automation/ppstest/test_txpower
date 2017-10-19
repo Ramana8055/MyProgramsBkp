@@ -1,0 +1,12 @@
+TxPower=$1
+iwpriv wifi0 TXPowLim $TxPower
+ifconfig wifi0 down
+ifconfig wifi0 up
+GET_TxPower=$(iwpriv wifi0 getTxPowLim | cut -d ":" -f 2)
+if [ $TxPower -eq $GET_TxPower ]; then
+    echo "txpower is set"
+    txpower="txpower is set"
+else
+    echo "txpower is not set"
+    txpower="txpower is not set"
+fi
