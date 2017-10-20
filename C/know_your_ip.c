@@ -10,17 +10,17 @@
 
 int main()
 {
-	int fd;
-	struct ifreq ifr;
-	if((fd = socket(AF_INET, SOCK_DGRAM, 0))<0){
-		perror("Socket\n");
-		return 1;
-	}
-	ifr.ifr_addr.sa_family = AF_INET;
-	strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ-1);
-//	strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
-	ioctl(fd, SIOCGIFADDR, &ifr);
-	close(fd);
-	printf("%s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
-	return 0;
+    int fd;
+    struct ifreq ifr;
+    if((fd = socket(AF_INET, SOCK_DGRAM, 0))<0){
+        perror("Socket\n");
+        return 1;
+    }
+    ifr.ifr_addr.sa_family = AF_INET;
+    strncpy(ifr.ifr_name, "wlan0", IFNAMSIZ-1);
+//  strncpy(ifr.ifr_name, "eth0", IFNAMSIZ-1);
+    ioctl(fd, SIOCGIFADDR, &ifr);
+    close(fd);
+    printf("%s\n", inet_ntoa(((struct sockaddr_in *)&ifr.ifr_addr)->sin_addr));
+    return 0;
 }
