@@ -62,7 +62,7 @@ try:
 
     child.sendline("ls -lt")
 
-    x = child.expect(["MW1000.+emmc.image", "[tT]ransfer [cC]omplete", "[dD]irectory", TIMEOUT, EOF])
+    x = child.expect(['MW1000-I.MX6-ext4-[0-9]*.[0-9]*.[0-9]*.[0-9]*-emmc.image', "[tT]ransfer [cC]omplete", "[dD]irectory", TIMEOUT, EOF])
     if x == 0:
         image = child.match.group().split("\n")[0]
         print image
