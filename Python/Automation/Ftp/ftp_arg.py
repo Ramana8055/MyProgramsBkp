@@ -33,7 +33,7 @@ try:
         exit(1)
 
     child.timeout = 600
-    child.logfile_read = stdout
+    #child.logfile_read = stdout
 
     x = child.expect(['[nN]ame', EOF, TIMEOUT])
     if x!=0:
