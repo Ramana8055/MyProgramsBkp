@@ -32,7 +32,7 @@ try:
         print "failed to connect " + exc_info()[0]
         exit(1)
 
-    child.timeout = 600
+    child.timeout = 1600
     #child.logfile_read = stdout
 
     x = child.expect(['[nN]ame', EOF, TIMEOUT])

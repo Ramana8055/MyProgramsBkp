@@ -1,0 +1,4 @@
+skb->data = buffer
+
+skb_push = add buffer at the beginning
+skb_pull = remove buffer at the end

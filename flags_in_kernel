@@ -1,0 +1,10 @@
+GFP_KERNEL -> Kernel Virtual Memeory
+GFP_USER   -> User Space VM
+GFP_HIGH_USER -> 64 bit zone
+GFP_DMA -> Lower address, if DMA is 64 bit no need to use
+GFP_COLD -> Disable swapping
+GFP_HIGH -> Kernel High VM
+GFP_REPEAT -> Retry
+GFP_NOFAIL -> Try not to fail
+GFP_NORETRY -> No retry if alloc fails
+GFP_ATOMIC  -> Used for ISRs, uses memory from a pool specially for ISRs
