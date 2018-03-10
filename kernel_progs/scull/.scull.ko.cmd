@@ -1,0 +1,1 @@
+cmd_/home/savari/Desktop/LDD_training/new/examples/scull/scull.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/savari/Desktop/LDD_training/new/examples/scull/scull.ko /home/savari/Desktop/LDD_training/new/examples/scull/scull.o /home/savari/Desktop/LDD_training/new/examples/scull/scull.mod.o
