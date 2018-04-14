@@ -79,10 +79,6 @@ o2h() {
    echo "ibase=8;obase=20;$1"|bc
 }
 
-Ping() {
-   ping 192.168.20.$@
-}
-
 Set() {
 #    PS1=${PS1}"\e]2;$@\a"
    printf '\e]2;%s\a' "$1";
@@ -98,14 +94,6 @@ alias LS="ls"
 alias Cflags="echo '-Wall -Werror -Wshadow -Wundef -Wstrict-prototypes -Wunreachable-code -Wextra -Wno-unused-parameter'"
 
 alias cl="echo -ne '\0033\0143'"
-
-Scp() {
-    scp -r -P51012 $1 root@192.168.20.$2:$3
-}
-
-Ssh() {
-    ssh -p51012 root@192.168.20.$@
-}
 
 Speed() {
     if [ $# -ne 2 ]
