@@ -95,10 +95,6 @@ alias iv="vi"
 alias sl="ls"
 alias LS="ls"
 
-alias Rpass="echo '1[8V:2<J5*W;2I16H1nu'"
-alias Apass="echo '5@G3p9axINJA'"
-alias Ppass="echo '6efre#ESpe'"
-
 alias Cflags="echo '-Wall -Werror -Wshadow -Wundef -Wstrict-prototypes -Wunreachable-code -Wextra -Wno-unused-parameter'"
 
 alias cl="echo -ne '\0033\0143'"
