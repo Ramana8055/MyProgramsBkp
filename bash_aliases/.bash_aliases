@@ -118,7 +118,7 @@ Speed() {
 
 Vpn() {
     set +x
-    cd /home/savari/Downloads/X/CRSSLconfig.tblk
+    cd ~/Downloads/X/CRSSLconfig.tblk
     sudo cp resolv.conf /etc/
     set -x
     sleep 1
@@ -127,15 +127,15 @@ Vpn() {
 }
 
 signed_value_in_hex() {
-    /home/savari/Myprgms/c-prgms/conversions/signed_value_in_hex_based_on_bits $@
+    ~/Myprgms/c-prgms/conversions/signed_value_in_hex_based_on_bits $@
 }
 
 unsigned_to_signed() {
-    /home/savari/Myprgms/c-prgms/conversions/unsigned_to_signed_based_on_bits $@
+    ~/Myprgms/c-prgms/conversions/unsigned_to_signed_based_on_bits $@
 }
 
 hex_to_char() {
-    /home/savari/Myprgms/c-prgms/conversions/hex_to_char $@
+    ~/Myprgms/c-prgms/conversions/hex_to_char $@
 }
 
 wireshark() {
@@ -180,14 +180,3 @@ clear
 # xdotool search --name "Mozilla Firefox" set_window --name "Monkey" -->Renames Mozilla Firefox to Monkey
 # Check here "http://askubuntu.com/questions/626505/how-do-i-permanently-change-window-titles"
 
-mw_make() {
-    make V=99 LOADADDR=0X12000000 "$@"
-}
-
-sw_make() {
-    make V=99 LOADADDR=0X12000000 PLATFORM_TYPE:="SW1000" "$@"
-}
-
-nxp_make() {
-    make V=99 LOADADDR=0X12000000 PLATFORM_TYPE:="SABRESD"  "$@"
-}
