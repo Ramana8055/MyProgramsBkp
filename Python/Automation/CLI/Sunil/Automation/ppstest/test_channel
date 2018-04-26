@@ -1,9 +1,0 @@
-iwpriv ath0 servchan $1
-GET_CHANNEL=$(iwpriv ath0 get_servchan | cut -d ":" -f 2)
-if [ $1 -eq $GET_CHANNEL ]; then
-    echo $1 "channel is set"
-    chan="channel is set"
-else
-    echo $1 "channel is not set"
-    chan="channel is not set"
-fi

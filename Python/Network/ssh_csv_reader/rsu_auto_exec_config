@@ -1,4 +1,0 @@
-ip1,rsu1,password1,"/etc/init.d/6tunnelstop; /sbin/reboot"
-ip2,rsu2,password2,"/etc/init.d/6tunnelstop; /sbin/reboot"
-ip3,rsu3,password3,"/etc/init.d/6tunnelstop; /sbin/reboot"
-ip4,rsu4,password4,"/etc/init.d/6tunnelstop; /sbin/reboot"
