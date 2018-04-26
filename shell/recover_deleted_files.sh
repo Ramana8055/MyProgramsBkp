@@ -9,7 +9,7 @@
 ######                          Script created by (Srijan Kishore)                              #######
 ######                                                                                          #######
 ######                                                                                          #######
-#######################################################################################################                                                                                       
+#######################################################################################################
 #######################################################################################################
 #######################################################################################################
 
@@ -17,7 +17,7 @@
 
 if [ "$USER" = 'root' ]
     then
-        gdialog --title "User Check" --msgbox "User is root, you can execute the script successfully." 200 150        
+        gdialog --title "User Check" --msgbox "User is root, you can execute the script successfully." 200 150
         echo "User is root, you can execute the script successfully"
     else
         gdialog --title "User Check" --msgbox "User is not Root. Please run the script as root user." 200 150
@@ -27,7 +27,7 @@ fi
 
 # Check your operating system
 
-cat /etc/debian_version >> /dev/null 
+cat /etc/debian_version >> /dev/null
 if [ "$?" = 0 ]
     then
         echo "You are using ubuntu/debian"
@@ -36,7 +36,7 @@ if [ "$?" = 0 ]
         gdialog --title "Your Operating System" --msgbox "You are not using debian/ubuntu.You can download the TestDisk from this link http://www.cgsecurity.org/wiki/TestDisk_Download"
 
     echo "You are not using debian/ubuntu. You can download the TestDisk from this link http://www.cgsecurity.org/wiki/TestDisk_Download"
-        
+
 fi
 
 
@@ -48,14 +48,14 @@ then
     echo "Testdisk already installed"
 else
     echo "Installing Testdisk"
-    apt-get update 
-    apt-get upgrade    
-        apt-get --force-yes -y install testdisk   
-                
+    apt-get update
+    apt-get upgrade
+        apt-get --force-yes -y install testdisk
+
                     gdialog --title "Success" --msgbox "Testdisk installed successfully" 100 50
-                  
+
  fi
-    
+
 # Set backup directory
 mkdir -p /root/result/lostfiles
 
@@ -70,7 +70,7 @@ mkdir -p /root/result/lostfiles
 photorec /d /root/result/lostfiles
 
 # Filters files
- 
+
 user=`ps aux | grep gnome-session | grep -v grep | head -1 | cut -d " " -f1`
 mkdir "/home/$user/recovered_output"
 

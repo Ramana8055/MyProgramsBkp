@@ -10,9 +10,9 @@ do
 done
 for (( i=num ; i>0 ; i-- ))
 do
-	for (( j=1 ; j<=i ; j++ ))
-	do
-		echo -n \*
-	done
-	echo
+    for (( j=1 ; j<=i ; j++ ))
+    do
+        echo -n \*
+    done
+    echo
 done
