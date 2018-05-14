@@ -116,15 +116,7 @@ Speed() {
     fi
 }
 
-Vpn() {
-    set +x
-    cd ~/Downloads/X/CRSSLconfig.tblk
-    sudo cp resolv.conf /etc/
-    set -x
-    sleep 1
-    sudo openvpn --config client.ovpn
-    cd -
-}
+
 
 signed_value_in_hex() {
     ~/Myprgms/c-prgms/conversions/signed_value_in_hex_based_on_bits $@
