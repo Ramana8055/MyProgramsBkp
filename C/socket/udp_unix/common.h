@@ -8,6 +8,4 @@
 #include <netinet/in.h>
 #include <unistd.h>
 
-#define CLIENT1_SOCK "/tmp/cli_1.sock"
-#define CLIENT2_SOCK "/tmp/cli_2.sock"
-#define SERVER_SOCK  "/tmp/server.sock"
+#define SERVER_PATH  "/tmp/server.sock"

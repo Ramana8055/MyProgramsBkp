@@ -1,0 +1,13 @@
+SRC += h.c
+SRC += g.c
+SRC += i.c
+SRC += j.c
+
+OBJ = $(patsubst %.c, %.o, ${SRC})
+
+all: $(OBJ)
+	@echo $(OBJ) >/dev/null
+
+%.o: %.c
+	@echo $<
+	#@echo $@
