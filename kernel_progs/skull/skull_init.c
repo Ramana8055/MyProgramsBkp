@@ -91,17 +91,17 @@ module_param(skull_port_base, int, 0);
 static int skull_find_hw(void) /* returns the # of devices */
 {
     /* base is either the load-time value or the first trial */
-    int base = skull_port_base ? skull_port_base 
-                             : SKULL_PORT_FLOOR; 
+    int base = skull_port_base ? skull_port_base
+                             : SKULL_PORT_FLOOR;
     int result = 0;
 
     /* loop one time if value assigned, try them all if autodetecting */
     do {
-	if (skull_detect(base, SKULL_PORT_RANGE) == 0) {
-	    skull_init_board(base);
-	    result++;
-	}
-	base += SKULL_PORT_RANGE; /* prepare for next trial */
+    if (skull_detect(base, SKULL_PORT_RANGE) == 0) {
+        skull_init_board(base);
+        result++;
+    }
+    base += SKULL_PORT_RANGE; /* prepare for next trial */
     }
     while (skull_port_base == 0 && base < SKULL_PORT_CEIL);
 
@@ -121,73 +121,73 @@ int skull_init(void)
     unsigned long flags;          /* used to hold system flags */
     unsigned long add, i;
     void *base;
-    
+
     /* Use ioremap to get a handle on our region */
     base = ioremap(ISA_REGION_BEGIN, ISA_REGION_END - ISA_REGION_BEGIN);
     base -= ISA_REGION_BEGIN;  /* Do the offset once */
-    
+
     /* probe all the memory hole in 2KB steps */
     for (add = ISA_REGION_BEGIN; add < ISA_REGION_END; add += STEP) {
-	/*
-	 * Check for an already allocated region.
-	 */
-	if (check_mem_region (add, 2048)) {
-		printk(KERN_INFO "%lx: Allocated\n", add);
-		continue;
-	}
-	/*
-	 * Read and write the beginning of the region and see what happens.
-	 */
-	save_flags(flags); 
-	cli();
-	oldval = readb (base + add);  /* Read a byte */
-	writeb (oldval^0xff, base + add);
-	mb();
-	newval = readb (base + add);
-	writeb (oldval, base + add);
-	restore_flags(flags);
+    /*
+     * Check for an already allocated region.
+     */
+    if (check_mem_region (add, 2048)) {
+        printk(KERN_INFO "%lx: Allocated\n", add);
+        continue;
+    }
+    /*
+     * Read and write the beginning of the region and see what happens.
+     */
+    save_flags(flags);
+    cli();
+    oldval = readb (base + add);  /* Read a byte */
+    writeb (oldval^0xff, base + add);
+    mb();
+    newval = readb (base + add);
+    writeb (oldval, base + add);
+    restore_flags(flags);
 
-	if ((oldval^newval) == 0xff) {  /* we re-read our change: it's ram */
-	    printk(KERN_INFO "%lx: RAM\n", add);
-	    continue;
-	}
-	if ((oldval^newval) != 0) {  /* random bits changed: it's empty */
-	    printk(KERN_INFO "%lx: empty\n", add);
-	    continue;
-	}
-	
-	/*
-	 * Expansion rom (executed at boot time by the bios)
-	 * has a signature where the first byt is 0x55, the second 0xaa,
-	 * and the third byte indicates the size of such rom
-	 */
-	if ( (oldval == 0x55) && (readb (base + add + 1) == 0xaa)) {
-	    int size = 512 * readb (base + add + 2);
-	    printk(KERN_INFO "%lx: Expansion ROM, %i bytes\n",
-                   add, size);
-	    add += (size & ~2048) - 2048; /* skip it */
-	    continue;
-	}
-	
-	/*
-	 * If the tests above failed, we still don't know if it is ROM or
-	 * empty. Since empty memory can appear as 0x00, 0xff, or the low
-	 * address byte, we must probe multiple bytes: if at least one of
-	 * them is different from these three values, then this is rom
-	 * (though not boot rom).
-	 */
-	printk(KERN_INFO "%lx: ", add);
-	for (i=0; i<5; i++) {
-	    unsigned long radd = add + 57*(i+1);  /* a "random" value */
-	    unsigned char val = readb (base + radd);
-	    if (val && val != 0xFF && val != ((unsigned long) radd&0xFF))
-		break;
-	}    
-	printk("%s\n", i==5 ? "empty" : "ROM");
+    if ((oldval^newval) == 0xff) {  /* we re-read our change: it's ram */
+        printk(KERN_INFO "%lx: RAM\n", add);
+        continue;
+    }
+    if ((oldval^newval) != 0) {  /* random bits changed: it's empty */
+        printk(KERN_INFO "%lx: empty\n", add);
+        continue;
     }
 
     /*
-     * Find you hardware 
+     * Expansion rom (executed at boot time by the bios)
+     * has a signature where the first byt is 0x55, the second 0xaa,
+     * and the third byte indicates the size of such rom
+     */
+    if ( (oldval == 0x55) && (readb (base + add + 1) == 0xaa)) {
+        int size = 512 * readb (base + add + 2);
+        printk(KERN_INFO "%lx: Expansion ROM, %i bytes\n",
+                   add, size);
+        add += (size & ~2048) - 2048; /* skip it */
+        continue;
+    }
+
+    /*
+     * If the tests above failed, we still don't know if it is ROM or
+     * empty. Since empty memory can appear as 0x00, 0xff, or the low
+     * address byte, we must probe multiple bytes: if at least one of
+     * them is different from these three values, then this is rom
+     * (though not boot rom).
+     */
+    printk(KERN_INFO "%lx: ", add);
+    for (i=0; i<5; i++) {
+        unsigned long radd = add + 57*(i+1);  /* a "random" value */
+        unsigned char val = readb (base + radd);
+        if (val && val != 0xFF && val != ((unsigned long) radd&0xFF))
+        break;
+    }
+    printk("%s\n", i==5 ? "empty" : "ROM");
+    }
+
+    /*
+     * Find you hardware
      */
     skull_find_hw();
 

@@ -1,10 +1,10 @@
 #!/usr/bin/python
 
 graph={ "a": ["b","c"],
-	"b": ["d","e"],
-	"c": [],
-	"e": [],
-	"d": []
+    "b": ["d","e"],
+    "c": [],
+    "e": [],
+    "d": []
 }
 
 def find_path(graph, start, end, path=[]):

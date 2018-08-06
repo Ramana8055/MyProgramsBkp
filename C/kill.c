@@ -5,18 +5,18 @@
 
 int main()
 {
-	int fd, i;
+    int fd, i;
 
-	fd=open("fifo",O_RDONLY,0666);
-	if(fd<0)
-	{
-		perror("open\n");
-		exit(1);
-	}
-	read(fd,(int *)&i,sizeof(i));
-	sleep(2);
-	while(1)
-		kill(i,SIGINT);
-	return 0;
+    fd=open("fifo",O_RDONLY,0666);
+    if(fd<0)
+    {
+        perror("open\n");
+        exit(1);
+    }
+    read(fd,(int *)&i,sizeof(i));
+    sleep(2);
+    while(1)
+        kill(i,SIGINT);
+    return 0;
 }
 

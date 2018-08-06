@@ -25,7 +25,7 @@ int main()
         if (ret < 0) {
             printf("Select\n");
         } else if (ret == 0) {
-            printf("Tim: %d\n", FD_ISSET(0,&rdfd));
+            printf("Timeouti\n");
         } else {
             printf("Event: %d\n", FD_ISSET(0,&rdfd));
             read(0,&ch,1);

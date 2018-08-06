@@ -3,9 +3,9 @@
 function make_minors {
     let part=1
     while (($part < $minors)); do
-	let minor=$part+$2
-	mknod $1$part b $major $minor
-	let part=$part+1
+    let minor=$part+$2
+    mknod $1$part b $major $minor
+    let part=$part+1
     done
 }
 

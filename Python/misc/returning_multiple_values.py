@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 def select_choice():
-	return 1,2,3,4,5
+    return 1,2,3,4,5
 
 d=select_choice() #catch all return values into an array
 
@@ -9,6 +9,7 @@ print d
 
 print d[0],d[1]
 
+#underscore means you are ignoring the first return type
 _,e=select_choice() #ignore first value
 
 print e

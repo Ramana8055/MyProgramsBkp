@@ -1,7 +1,7 @@
 #!/usr/bin/python -B
 
 def f(x):
-	return x*x*x
+    return x*x*x
 
 print map(f,range(0,25)) #print the output for every value(here cube of every value)
 

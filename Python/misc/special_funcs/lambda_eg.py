@@ -10,7 +10,7 @@ print sequence
 sequ=[]
 s=lambda x: x**x
 for i in range(10):
-	sequ.append(s(i))
+    sequ.append(s(i))
 print sequ
 
 #which is equivalent to 
@@ -20,5 +20,5 @@ print seq
 #which is also equivalent to
 sq=[]
 for x in range(10):
-	sq.append(x**x)
+    sq.append(x**x)
 print sq

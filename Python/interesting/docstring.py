@@ -5,9 +5,9 @@ after importing it on python interpreter
 """
 
 def func():
-	"""
+    """
         This is a function
-	"""
+    """
 
 #Open python interpreter
 #Type the following

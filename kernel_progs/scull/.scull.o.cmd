@@ -1,1 +1,0 @@
-cmd_/home/savari/Desktop/LDD_training/new/examples/scull/scull.o := ld -m elf_x86_64   -r -o /home/savari/Desktop/LDD_training/new/examples/scull/scull.o /home/savari/Desktop/LDD_training/new/examples/scull/main.o /home/savari/Desktop/LDD_training/new/examples/scull/pipe.o /home/savari/Desktop/LDD_training/new/examples/scull/access.o 

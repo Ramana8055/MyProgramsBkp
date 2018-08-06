@@ -13,10 +13,10 @@ extern struct bus_type ldd_bus_type;
  */
 
 struct ldd_driver {
-	char *version;
-	struct module *module;
-	struct device_driver driver;
-	struct driver_attribute version_attr;
+    char *version;
+    struct module *module;
+    struct device_driver driver;
+    struct driver_attribute version_attr;
 };
 
 #define to_ldd_driver(drv) container_of(drv, struct ldd_driver, driver);
@@ -26,9 +26,9 @@ struct ldd_driver {
  */
 
 struct ldd_device {
-	char *name;
-	struct ldd_driver *driver;
-	struct device dev;
+    char *name;
+    struct ldd_driver *driver;
+    struct device dev;
 };
 
 #define to_ldd_device(dev) container_of(dev, struct ldd_device, dev);

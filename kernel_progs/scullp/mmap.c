@@ -18,11 +18,11 @@
 #include <linux/config.h>
 #include <linux/module.h>
 
-#include <linux/mm.h>		/* everything */
-#include <linux/errno.h>	/* error codes */
+#include <linux/mm.h>       /* everything */
+#include <linux/errno.h>    /* error codes */
 #include <asm/pgtable.h>
 
-#include "scullp.h"		/* local definitions */
+#include "scullp.h"     /* local definitions */
 
 
 /*
@@ -32,16 +32,16 @@
 
 void scullp_vma_open(struct vm_area_struct *vma)
 {
-	struct scullp_dev *dev = vma->vm_private_data;
+    struct scullp_dev *dev = vma->vm_private_data;
 
-	dev->vmas++;
+    dev->vmas++;
 }
 
 void scullp_vma_close(struct vm_area_struct *vma)
 {
-	struct scullp_dev *dev = vma->vm_private_data;
+    struct scullp_dev *dev = vma->vm_private_data;
 
-	dev->vmas--;
+    dev->vmas--;
 }
 
 /*
@@ -60,60 +60,60 @@ void scullp_vma_close(struct vm_area_struct *vma)
 struct page *scullp_vma_nopage(struct vm_area_struct *vma,
                                 unsigned long address, int *type)
 {
-	unsigned long offset;
-	struct scullp_dev *ptr, *dev = vma->vm_private_data;
-	struct page *page = NOPAGE_SIGBUS;
-	void *pageptr = NULL; /* default to "missing" */
+    unsigned long offset;
+    struct scullp_dev *ptr, *dev = vma->vm_private_data;
+    struct page *page = NOPAGE_SIGBUS;
+    void *pageptr = NULL; /* default to "missing" */
 
-	down(&dev->sem);
-	offset = (address - vma->vm_start) + (vma->vm_pgoff << PAGE_SHIFT);
-	if (offset >= dev->size) goto out; /* out of range */
+    down(&dev->sem);
+    offset = (address - vma->vm_start) + (vma->vm_pgoff << PAGE_SHIFT);
+    if (offset >= dev->size) goto out; /* out of range */
 
-	/*
-	 * Now retrieve the scullp device from the list,then the page.
-	 * If the device has holes, the process receives a SIGBUS when
-	 * accessing the hole.
-	 */
-	offset >>= PAGE_SHIFT; /* offset is a number of pages */
-	for (ptr = dev; ptr && offset >= dev->qset;) {
-		ptr = ptr->next;
-		offset -= dev->qset;
-	}
-	if (ptr && ptr->data) pageptr = ptr->data[offset];
-	if (!pageptr) goto out; /* hole or end-of-file */
-	page = virt_to_page(pageptr);
+    /*
+     * Now retrieve the scullp device from the list,then the page.
+     * If the device has holes, the process receives a SIGBUS when
+     * accessing the hole.
+     */
+    offset >>= PAGE_SHIFT; /* offset is a number of pages */
+    for (ptr = dev; ptr && offset >= dev->qset;) {
+        ptr = ptr->next;
+        offset -= dev->qset;
+    }
+    if (ptr && ptr->data) pageptr = ptr->data[offset];
+    if (!pageptr) goto out; /* hole or end-of-file */
+    page = virt_to_page(pageptr);
 
-	/* got it, now increment the count */
-	get_page(page);
-	if (type)
-		*type = VM_FAULT_MINOR;
+    /* got it, now increment the count */
+    get_page(page);
+    if (type)
+        *type = VM_FAULT_MINOR;
   out:
-	up(&dev->sem);
-	return page;
+    up(&dev->sem);
+    return page;
 }
 
 
 
 struct vm_operations_struct scullp_vm_ops = {
-	.open =     scullp_vma_open,
-	.close =    scullp_vma_close,
-	.nopage =   scullp_vma_nopage,
+    .open =     scullp_vma_open,
+    .close =    scullp_vma_close,
+    .nopage =   scullp_vma_nopage,
 };
 
 
 int scullp_mmap(struct file *filp, struct vm_area_struct *vma)
 {
-	struct inode *inode = filp->f_dentry->d_inode;
+    struct inode *inode = filp->f_dentry->d_inode;
 
-	/* refuse to map if order is not 0 */
-	if (scullp_devices[iminor(inode)].order)
-		return -ENODEV;
+    /* refuse to map if order is not 0 */
+    if (scullp_devices[iminor(inode)].order)
+        return -ENODEV;
 
-	/* don't do anything here: "nopage" will set up page table entries */
-	vma->vm_ops = &scullp_vm_ops;
-	vma->vm_flags |= VM_RESERVED;
-	vma->vm_private_data = filp->private_data;
-	scullp_vma_open(vma);
-	return 0;
+    /* don't do anything here: "nopage" will set up page table entries */
+    vma->vm_ops = &scullp_vm_ops;
+    vma->vm_flags |= VM_RESERVED;
+    vma->vm_private_data = filp->private_data;
+    scullp_vma_open(vma);
+    return 0;
 }
 

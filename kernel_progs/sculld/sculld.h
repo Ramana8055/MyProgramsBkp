@@ -55,16 +55,16 @@
 #define SCULLD_QSET     500
 
 struct sculld_dev {
-	void **data;
-	struct sculld_dev *next;  /* next listitem */
-	int vmas;                 /* active mappings */
-	int order;                /* the current allocation order */
-	int qset;                 /* the current array size */
-	size_t size;              /* 32-bit will suffice */
-	struct semaphore sem;     /* Mutual exclusion */
-	struct cdev cdev;
-	char devname[20];
-	struct ldd_device ldev;
+    void **data;
+    struct sculld_dev *next;  /* next listitem */
+    int vmas;                 /* active mappings */
+    int order;                /* the current allocation order */
+    int qset;                 /* the current array size */
+    size_t size;              /* 32-bit will suffice */
+    struct semaphore sem;     /* Mutual exclusion */
+    struct cdev cdev;
+    char devname[20];
+    struct ldd_device ldev;
 };
 
 extern struct sculld_dev *sculld_devices;

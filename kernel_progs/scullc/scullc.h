@@ -53,14 +53,14 @@
 #define SCULLC_QSET     500
 
 struct scullc_dev {
-	void **data;
-	struct scullc_dev *next;  /* next listitem */
-	int vmas;                 /* active mappings */
-	int quantum;              /* the current allocation size */
-	int qset;                 /* the current array size */
-	size_t size;              /* 32-bit will suffice */
-	struct semaphore sem;     /* Mutual exclusion */
-	struct cdev cdev;
+    void **data;
+    struct scullc_dev *next;  /* next listitem */
+    int vmas;                 /* active mappings */
+    int quantum;              /* the current allocation size */
+    int qset;                 /* the current array size */
+    size_t size;              /* 32-bit will suffice */
+    struct semaphore sem;     /* Mutual exclusion */
+    struct cdev cdev;
 };
 
 extern struct scullc_dev *scullc_devices;

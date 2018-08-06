@@ -5,10 +5,10 @@ a=10
 b=0
 
 try:
-	c=a/b
+    c=a/b
 
 #except ZeroDivisionError:
-#	pass
+#   pass
 except:
-	print exc_info()[0]
+    print exc_info()[0]
 

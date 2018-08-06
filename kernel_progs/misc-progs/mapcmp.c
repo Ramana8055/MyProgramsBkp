@@ -30,58 +30,58 @@ static char *mapdev (const char *, unsigned long, unsigned long);
  */
 int main (int argc, char **argv)
 {
-	unsigned long offset, size, i;
-	char *addr1, *addr2;
+    unsigned long offset, size, i;
+    char *addr1, *addr2;
 /*
  * Sanity check.
  */
-	if (argc != 5)
-	{
-		fprintf (stderr, "Usage: mapcmp dev1 dev2 offset pages\n");
-		exit (1);
-	}
+    if (argc != 5)
+    {
+        fprintf (stderr, "Usage: mapcmp dev1 dev2 offset pages\n");
+        exit (1);
+    }
 /*
  * Map the two devices.
  */
-	offset = strtoul (argv[3], NULL, 16);
-	size = atoi (argv[4])*PAGE_SIZE;
-	printf ("Offset is 0x%lx\n", offset);
-	addr1 = mapdev (argv[1], offset, size);
-	addr2 = mapdev (argv[2], offset, size);
+    offset = strtoul (argv[3], NULL, 16);
+    size = atoi (argv[4])*PAGE_SIZE;
+    printf ("Offset is 0x%lx\n", offset);
+    addr1 = mapdev (argv[1], offset, size);
+    addr2 = mapdev (argv[2], offset, size);
 /*
  * Do the comparison.
  */
-	printf ("Comparing...");
-	fflush (stdout);
-	for (i = 0; i < size; i++)
-		if (*addr1++ != *addr2++)
-		{
-			printf ("areas differ at byte %ld\n", i);
-			exit (0);
-		}
-	printf ("areas are identical.\n");
-	exit (0);
+    printf ("Comparing...");
+    fflush (stdout);
+    for (i = 0; i < size; i++)
+        if (*addr1++ != *addr2++)
+        {
+            printf ("areas differ at byte %ld\n", i);
+            exit (0);
+        }
+    printf ("areas are identical.\n");
+    exit (0);
 }
 
 
 
 static char *mapdev (const char *dev, unsigned long offset,
-		unsigned long size)
+        unsigned long size)
 {
-	char *addr;
-	int fd = open (dev, O_RDONLY);
+    char *addr;
+    int fd = open (dev, O_RDONLY);
 
-	if (fd < 0)
-	{
-		perror (dev);
-		exit (1);
-	}
-	addr = mmap (0, size, PROT_READ, MAP_PRIVATE, fd, offset);
-	if (addr == MAP_FAILED)
-	{
-		perror (dev);
-		exit (1);
-	}
-	printf ("Mapped %s (%lu @ %lx) at %p\n", dev, size, offset, addr);
-	return (addr);
+    if (fd < 0)
+    {
+        perror (dev);
+        exit (1);
+    }
+    addr = mmap (0, size, PROT_READ, MAP_PRIVATE, fd, offset);
+    if (addr == MAP_FAILED)
+    {
+        perror (dev);
+        exit (1);
+    }
+    printf ("Mapped %s (%lu @ %lx) at %p\n", dev, size, offset, addr);
+    return (addr);
 }

@@ -2,7 +2,7 @@
  * mapper.c -- simple file that mmap()s a file region and prints it
  *
  * Copyright (C) 1998,2000,2001 Alessandro Rubini
- * 
+ *
  *   This program is free software; you can redistribute it and/or modify
  *   it under the terms of the GNU General Public License as published by
  *   the Free Software Foundation; either version 2 of the License, or
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
     }
     /* the offset might be big (e.g., PCI devices), but conversion trims it */
     if (offset == INT_MAX) {
-	if (argv[2][1]=='x')
+    if (argv[2][1]=='x')
             sscanf(argv[2]+2, "%lx", &offset);
         else
             sscanf(argv[2], "%lu", &offset);
@@ -68,4 +68,4 @@ int main(int argc, char **argv)
     fwrite(address, 1, len, stdout);
     return 0;
 }
-        
+

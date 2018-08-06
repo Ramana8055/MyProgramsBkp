@@ -1,1 +1,0 @@
-cmd_/home/savari/scull/cdev_driv.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/savari/scull/cdev_driv.ko /home/savari/scull/cdev_driv.o /home/savari/scull/cdev_driv.mod.o

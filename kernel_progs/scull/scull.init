@@ -6,7 +6,7 @@ SECTION="misc"
 
 # The list of filenames and minor numbers: $PREFIX is prefixed to all names
 PREFIX="scull"
-FILES="     0 0         1 1         2 2        3 3    priv 16 
+FILES="     0 0         1 1         2 2        3 3    priv 16
         pipe0 32    pipe1 33    pipe2 34   pipe3 35
        single 48      uid 64     wuid 80"
 
@@ -60,11 +60,11 @@ function create_files () {
     local devlist=""
     local file
     while true; do
-	if [ $# -lt 2 ]; then break; fi
-	file="${DEVICE}$1"
-	mknod $file c $MAJOR $2
-	devlist="$devlist $file"
-	shift 2
+    if [ $# -lt 2 ]; then break; fi
+    file="${DEVICE}$1"
+    mknod $file c $MAJOR $2
+    devlist="$devlist $file"
+    shift 2
     done
     if [ -n "$OWNER" ]; then chown $OWNER $devlist; fi
     if [ -n "$GROUP" ]; then chgrp $GROUP $devlist; fi
@@ -77,41 +77,41 @@ function remove_files () {
     local devlist=""
     local file
     while true; do
-	if [ $# -lt 2 ]; then break; fi
-	file="${DEVICE}$1"
-	devlist="$devlist $file"
-	shift 2
+    if [ $# -lt 2 ]; then break; fi
+    file="${DEVICE}$1"
+    devlist="$devlist $file"
+    shift 2
     done
     rm -f $devlist
 }
 
 # Load and create files
 function load_device () {
-    
+
     if [ -f $MODDIR/$DEVICE.o ]; then
-	devpath=$MODDIR/$DEVICE.o
+    devpath=$MODDIR/$DEVICE.o
     else if [ -f ./$DEVICE.o ]; then
-	devpath=./$DEVICE.o
+    devpath=./$DEVICE.o
     else
-	devpath=$DEVICE; # let insmod/modprobe guess
+    devpath=$DEVICE; # let insmod/modprobe guess
     fi; fi
     if [ "$devpath" != "$DEVICE" ]; then
-	echo -n " (loading file $devpath)"
+    echo -n " (loading file $devpath)"
     fi
 
     if $INSMOD $devpath $OPTIONS; then
-	MAJOR=`awk "\\$2==\"$DEVICE\" {print \\$1}" /proc/devices`
-	remove_files $FILES
-	create_files $FILES
-	device_specific_post_load
+    MAJOR=`awk "\\$2==\"$DEVICE\" {print \\$1}" /proc/devices`
+    remove_files $FILES
+    create_files $FILES
+    device_specific_post_load
     else
-	echo " FAILED!"
+    echo " FAILED!"
      fi
 }
 
 # Unload and remove files
 function unload_device () {
-    device_specific_pre_unload 
+    device_specific_pre_unload
     /sbin/rmmod $DEVICE
     remove_files $FILES
 }

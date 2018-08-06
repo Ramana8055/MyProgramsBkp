@@ -12,8 +12,8 @@ a=[(i,x,y) for i in list1 for x in list2 for y in list3]
 
 
 for elem in a:
-	for x in elem:
-		print x,
-	print ""
+    for x in elem:
+        print x,
+    print ""
 
 

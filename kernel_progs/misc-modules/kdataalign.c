@@ -38,29 +38,29 @@ struct u8b {char c;  __u64     t;} u8b;
 
 static void data_cleanup(void)
 {
-	/* never called */
+    /* never called */
 }
 
 static int data_init(void)
 {
-	/* print information and return an error */
-	printk("arch  Align:  char  short  int  long   ptr long-long "
-		" u8 u16 u32 u64\n");
-	printk("%-12s  %3i   %3i   %3i   %3i   %3i   %3i      "
-		"%3i %3i %3i %3i\n",
-		system_utsname.machine,
-		/* note that gcc can subtract void * values, but it's not ansi */
-		(int)((void *)(&c.t)   - (void *)&c),
-		(int)((void *)(&s.t)   - (void *)&s),
-		(int)((void *)(&i.t)   - (void *)&i),
-		(int)((void *)(&l.t)   - (void *)&l),
-		(int)((void *)(&p.t)   - (void *)&p),
-		(int)((void *)(&ll.t)  - (void *)&ll),
-		(int)((void *)(&u1b.t) - (void *)&u1b),
-		(int)((void *)(&u2b.t) - (void *)&u2b),
-		(int)((void *)(&u4b.t) - (void *)&u4b),
-		(int)((void *)(&u8b.t) - (void *)&u8b));
-	return -ENODEV;
+    /* print information and return an error */
+    printk("arch  Align:  char  short  int  long   ptr long-long "
+        " u8 u16 u32 u64\n");
+    printk("%-12s  %3i   %3i   %3i   %3i   %3i   %3i      "
+        "%3i %3i %3i %3i\n",
+        system_utsname.machine,
+        /* note that gcc can subtract void * values, but it's not ansi */
+        (int)((void *)(&c.t)   - (void *)&c),
+        (int)((void *)(&s.t)   - (void *)&s),
+        (int)((void *)(&i.t)   - (void *)&i),
+        (int)((void *)(&l.t)   - (void *)&l),
+        (int)((void *)(&p.t)   - (void *)&p),
+        (int)((void *)(&ll.t)  - (void *)&ll),
+        (int)((void *)(&u1b.t) - (void *)&u1b),
+        (int)((void *)(&u2b.t) - (void *)&u2b),
+        (int)((void *)(&u4b.t) - (void *)&u4b),
+        (int)((void *)(&u8b.t) - (void *)&u8b));
+    return -ENODEV;
 }
 
 module_init(data_init);

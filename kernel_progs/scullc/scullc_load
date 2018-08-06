@@ -11,7 +11,7 @@ else
 fi
 
 # remove stale nodes
-rm -f /dev/${device}? 
+rm -f /dev/${device}?
 
 # invoke insmod with all arguments we got
 # and use a pathname, as newer modutils don't look in . by default
