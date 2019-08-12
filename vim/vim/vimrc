@@ -39,11 +39,52 @@ set tabstop=4
 set expandtab
 retab
 
+fun! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+" map f :call ShowFuncName() <CR>
+
+"--------My Doxy Commands--------
+let s:CopyrightTag = "/*\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "Copyright (c) 2019 Savari Inc.\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "All Rights Reserved\<enter>\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "Author         :\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "Modified by    :\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "/\<enter>"
+
+function! <SID>MyDoxyLic()
+    set noexpandtab
+    exec "normal A".substitute( s:CopyrightTag, "\<enter>", "\<enter>", "g" )
+    set expandtab
+endfunction
+command! Copyright :call <SID>MyDoxyLic()
+
+let s:FunctionHeaderTag = "/*\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "@Function         :" . ShowFuncName() . "\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "@Description      :\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "@<params>   [IN]  :\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "@<params>   [OUT] :\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "@returns          :\<enter>"
+let s:FunctionHeaderTag = s:FunctionHeaderTag . "/\<enter>"
+
+function! <SID>MyDoxyFuncHeader()
+    set noexpandtab
+    exec "normal A".substitute( s:FunctionHeaderTag, "\<enter>", "\<enter>", "g" )
+    set expandtab
+endfunction
+command! FunctionHeader :call <SID>MyDoxyFuncHeader()
+
+
 "Limit characters in a line to 80
-match ErrorMsg '\%>80v.\+'
+"match ErrorMsg '\%>80v.\+'
 
 "Substitute fprintf
-map <Leader>f :%s/fp/fprintf(stderr, "%d %s\\n", __LINE__, __func__);/<CR>
+map <Leader>f :%s/fpp/fprintf(stderr, "%d %s\\n", __LINE__, __func__);/<CR>
 
 "Substitue printk
 map <Leader>p :%s/prk/printk(KERN_EMERG "%d %s\\n", __LINE__, __func__);/<CR>
@@ -56,6 +97,7 @@ set shiftwidth=4
 set hidden
 filetype indent on
 filetype plugin on
+filetype plugin indent on
 set autoindent
 
 "allow deletion of previously entered data in insert mode
@@ -115,18 +157,18 @@ map <Leader>U :g/^$/d<CR>
 
 "------  GUI Options  ------
 if has("gui_running")
-	" Hides toolbar and scrollbars and File menu
-	set guioptions=egt
+    " Hides toolbar and scrollbars and File menu
+    set guioptions=egt
 
-	" Highlights the current line background
-	set cursorline
-	colorscheme hybrid
+    " Highlights the current line background
+    set cursorline
+    colorscheme hybrid
 
-	" Open VIM in fullscreen window
-	set lines=200 columns=500
+    " Open VIM in fullscreen window
+    set lines=200 columns=500
 else
-	set t_Co=256
-	"colorscheme Mustang
-	set background=light
-	set mouse=a
+    set t_Co=256
+    "colorscheme Mustang
+    set background=light
+    set mouse=r
 endif
