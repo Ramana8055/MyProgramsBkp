@@ -5,15 +5,18 @@
 #*********************************************************
 
 DataRates() {
-   echo -e "\tModulation     10MHz Datarate(MBPS)  20MHz Datarate(MBPS)"
-   echo -e "\t1/2BPSK             3                     6"
-   echo -e "\t3/4BPSK             4.5                   9"
-   echo -e "\t1/2QPSK             6                     12"
-   echo -e "\t3/4QPSK             9                     18"
-   echo -e "\t1/2QAM16            12                    24"
-   echo -e "\t3/4QAM16            18                    36"
-   echo -e "\t2/3QAM64            24                    48"
-   echo -e "\t3/4QAM64            27                    54"
+   echo -e "\t ****************************************************************"
+   echo -e "\t *  Modulation  *  10MHz Datarate(Mbps) * 20MHz Datarate(Mbps)  *"
+   echo -e "\t ****************************************************************"
+   echo -e "\t *  1/2BPSK     *         3             *         6             *"
+   echo -e "\t *  3/4BPSK     *         4.5           *         9             *"
+   echo -e "\t *  1/2QPSK     *         6             *         12            *"
+   echo -e "\t *  3/4QPSK     *         9             *         18            *"
+   echo -e "\t *  1/2QAM16    *         12            *         24            *"
+   echo -e "\t *  3/4QAM16    *         18            *         36            *"
+   echo -e "\t *  2/3QAM64    *         24            *         48            *"
+   echo -e "\t *  3/4QAM64    *         27            *         54            *"
+   echo -e "\t ****************************************************************"
 }
 
 Mac_to_link_local() {
