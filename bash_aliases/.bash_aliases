@@ -93,6 +93,8 @@ alias scp='scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null '
 alias iv="vi"
 alias sl="ls"
 alias LS="ls"
+alias dc="cd"
+alias CD="cd"
 
 alias Cflags="echo '-Wall -Werror -Wshadow -Wundef -Wstrict-prototypes -Wunreachable-code -Wextra -Wno-unused-parameter'"
 
@@ -157,6 +159,15 @@ Camera() {
    cheese
 }
 
+HexToCBuf() {
+   echo -n $@ | xargs | sed 's/ //g' | sed -e "s/.\{2\}/&,\n/g" | awk '{print "0x"$0}' | sed '$d' | xargs
+}
+
+StripData() {
+    echo -n $@ | xargs | sed 's/ //g'
+}
+
+
 export EDITOR=vim
 
 #For Latex
@@ -175,3 +186,15 @@ clear
 # xdotool search --name "Mozilla Firefox" set_window --name "Monkey" -->Renames Mozilla Firefox to Monkey
 # Check here "http://askubuntu.com/questions/626505/how-do-i-permanently-change-window-titles"
 
+#If touchpad is unresponsive
+#sudo apt-get install xserver-xorg-input-synaptics
+
+setxkbmap -option caps:none #Dsiable capslock
+
+get_num_bytes() {
+   expr $(expr `echo "$@" | xargs | sed 's/ //g' | wc -c` - 1) / 2
+}
+
+# git submodule deinit <path_to_submodule> !!!remove slash at the end
+# rm -rf .git/modules/<path_to_module>
+# git rm -f <path_to_submodule> !!!remove slash at the end

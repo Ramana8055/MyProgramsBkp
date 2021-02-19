@@ -22,7 +22,7 @@ let g:buftabs_only_basename=1
 let g:buftabs_marker_modified = "+"
 
 " Toggle whitespace visibility with ,s
-nmap <Leader>s :set list!<CR>
+nmap <Leader>S :set list!<CR>
 set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮,nbsp:×
 :set list " Enable by default
 
@@ -51,7 +51,7 @@ endfun
 
 "--------My Doxy Commands--------
 let s:CopyrightTag = "/*\<enter>"
-let s:CopyrightTag = s:CopyrightTag . "Copyright (c) 2019 Savari Inc.\<enter>"
+let s:CopyrightTag = s:CopyrightTag . "Copyright (c) 2019\<enter>"
 let s:CopyrightTag = s:CopyrightTag . "All Rights Reserved\<enter>\<enter>"
 let s:CopyrightTag = s:CopyrightTag . "Author         :\<enter>"
 let s:CopyrightTag = s:CopyrightTag . "Modified by    :\<enter>"
@@ -79,6 +79,23 @@ function! <SID>MyDoxyFuncHeader()
 endfunction
 command! FunctionHeader :call <SID>MyDoxyFuncHeader()
 
+
+let s:MyTestCaseHeaderTag = "/**\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@TestCaseID          :\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@TestCaseDescription :\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@TestStep            :\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@TestData            :\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@ExpectedResults     :\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "@Owner               : Ramana\<enter>"
+let s:MyTestCaseHeaderTag = s:MyTestCaseHeaderTag . "/"
+
+function! <SID>MyTestCaseHeader()
+    set noexpandtab
+    exec "normal A".substitute( s:MyTestCaseHeaderTag, "\<enter>", "\<enter>", "g" )
+    set expandtab
+endfunction
+
+command! TestCaseHeader :call <SID>MyTestCaseHeader()
 
 "Limit characters in a line to 80
 "match ErrorMsg '\%>80v.\+'
@@ -151,6 +168,9 @@ nnoremap <silent> <leader>b :nohlsearch<CR>
 
 " <Leader>t = Delete all Trailing space in file
 map <Leader>t :%s/\s\+$//<CR>
+
+" <Leader>s = Delete all spaces in file
+map <Leader>s :%s/\s\+//g<CR>
 
 " <Leader>U = Deletes Unwanted empty lines
 map <Leader>U :g/^$/d<CR>
